@@ -1,0 +1,420 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+	font-family: 'Oleo Script', cursive;
+	font-size: 10px;
+	/* font size ko 10 px krne k baad em iske according change hoga  */
+}
+
+.container {
+	width: 100%;
+	min-height: 100vh;
+	/* min heit s kitna minimum required height h fix krenge yani kitne door height chaiye  */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+a {
+	text-decoration: none;
+}
+/* head section */
+#head {
+	/* background: linear-gradient(270deg, rgba(36, 45, 61, 0.5) 0, rgba(36, 45, 61, 0.5) 100%), url('./img/bg1.jpg'); */
+	background: url('./img/bg1.jpg');
+	background-position: top center;
+	background-size: cover;
+	position: relative;
+	z-index: 1;
+}
+/* background img k lie position relative fr after m jake absolute 0 0 krke color laga k poori height width p opacity add krenge fr zindex km kr denge */
+#head::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: black;
+	height: 100%;
+	width: 100%;
+	opacity: 0.7;
+	z-index: -1;
+}
+/* head ko choti aur badi screen dono p left m allign */
+#head .head {
+	max-width: 1200px;
+	/* max width k karan jb screen pdi ho jaegi to bhi margin rahega aur poora content left m nhi jaega */
+	margin: 0 auto;
+	padding: 0 50px;
+	justify-content: flex-start;
+}
+.head h1 {
+	display: block;
+	width: fit-content;
+	font-size: 4rem;
+	position: relative;
+	/* isko relative kie h taki aur sb kuch iske andr wala absolute p chl sake  */
+	color: transparent;
+	letter-spacing: 1px;
+	/* text-transform: uppercase; */
+	animation: notocolor 0.5s ease forwards 1s;
+	/* animation m no to color s color daal die fr time fix kr die aur forward laga k fix kr die animation end ko */
+}
+/* indivisual k lie hr ek ko select krke 1 sec + kr denge delay */
+.head h1:nth-child(1) {
+	animation-delay: 1.5s;
+}
+.head h1:nth-child(2) {
+	animation-delay: 2.5s;
+}
+.head h1:nth-child(3) {
+	/* yaha p animation laga die fr forwards krke fix kr die */
+	animation: notocolor1 0.5s ease forwards;
+	animation-delay: 3.5s;
+	/* color: crimson; */
+}
+/* h1 k animation slidein k lie span ka use krnge */
+.head h1 span {
+	position: absolute;
+	/* position ko absolute krke hi chalaenge lekin usse phle hm head ko relative kr denge */
+	top: 0;
+	left: 0;
+	width: 0;
+	/* width ko 0 kr die taki strt m koi animation na ho  */
+	height: 100%;
+	background-color: crimson;
+	animation: span_move 1.5s ease;
+	/* animation ko delay kr die h 1 sec k baad suru hoga */
+	animation-delay: 0.5s;
+}
+/* same span k lie bhi animation style krenge */
+.head h1:nth-child(1) span {
+	animation-delay: 1s;
+}
+.head h1:nth-child(2) span {
+	animation-delay: 2s;
+}
+.head h1:nth-child(3) span {
+	animation-delay: 3s;
+}
+/* span ka animation */
+@keyframes span_move {
+	50% {
+		width: 100%;
+		left: 0%;
+	}
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+@keyframes notocolor {
+	100% {
+		color: azure;
+	}
+}
+/* name wale ka alg animation banenge */
+@keyframes notocolor1 {
+	100% {
+		color: crimson;
+	}
+}
+.btn1 {
+	display: inline-block;
+	/* inline block s y ppora block ki tarah chelga  */
+	border: 2px solid crimson;
+	color: crimson;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	padding: 10px 30px;
+	margin-top: 10px;
+	background-color: transparent;
+	transition: 0.3s ease background-color;
+	/* transition property add kie h taki hover effect daal ske ispe */
+}
+.btn1:hover {
+	color: white;
+	background-color: crimson;
+}
+/* end of head */
+
+/* service sec */
+.hw {
+	height: 80px;
+	width: 80px;
+	margin: 5px;
+}
+/* svg ka class */
+
+#service {
+	width: 100%;
+}
+
+#service .service {
+	flex-direction: column;
+	text-align: center;
+	/* screen bdi hone pr bhi na change ho iske lie max-width ko value fr margin ko 0 auto aur padding de denge */
+	max-width: 1500px;
+	padding: 100px 10px;
+	margin: 0 auto;
+}
+.sec-title {
+	font-size: 4rem;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+	margin: 10px;
+}
+.serv-top p {
+	font-size: 2rem;
+	font-weight: 200;
+	word-spacing: 0.2rem;
+	line-height: 2.5rem;
+}
+.serv-bottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 50px;
+}
+.serv-bottom .item {
+	flex-basis: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin: 10px;
+	background: url('./img/img3.jpg');
+	background-position: top center;
+	background-size: cover;
+	padding: 50px;
+	border-radius: 10px;
+	/* position relative kie h taki background image ko opacity change kr ske */
+	position: relative;
+	z-index: 1;
+	/* overflow hidden s border radius aaega */
+	overflow: hidden;
+}
+.serv-bottom .item::after {
+	content: '';
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	/* linear gradient bgcolor ki jagah image p lagaenge */
+	opacity: 0.5;
+	z-index: -1;
+}
+
+.item-title {
+	font-size: 2rem;
+	color: azure;
+	font-weight: 300;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+.serv-bottom p {
+	color: azure;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	text-align: left;
+}
+/* end of service */
+
+/* project section */
+
+#project .project {
+	flex-direction: column;
+	max-width: 1500px;
+	padding: 100px 10px;
+	margin: 0 auto;
+	/* flex-wrap: wrap; */
+	text-align: center;
+}
+.project-bottom {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.project-item {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	/* border: 2px solid black; */
+	overflow: hidden;
+	margin: 10px;
+}
+.info {
+	padding: 30px;
+	flex-basis: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	color: azure;
+}
+.info h1 {
+	font-size: 4rem;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+.info h2 {
+	font-size: 2rem;
+	font-weight: 400;
+}
+.info p {
+	font-size: 1.4rem;
+	line-height: 2rem;
+	letter-spacing: 1px;
+	text-align: left;
+}
+.image {
+	/* padding: 30px; */
+	max-width: 100%;
+	height: auto;
+	overflow: hidden;
+	position: relative;
+}
+.image::after {
+	content: '';
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	height: 100%;
+	width: 100%;
+	opacity: 0.7;
+}
+.image img {
+	width: 100%;
+	overflow: hidden;
+	transition: 0.3s ease transform;
+}
+#project .project-item:hover .image img {
+	transform: scale(1.1);
+}
+/* end of project */
+/* about section */
+#about .about {
+	flex-direction: column-reverse;
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+.col-right {
+	padding: 0 10%;
+	width: 100%;
+}
+.col-right h2 {
+	font-size: 2rem;
+	letter-spacing: 1px;
+	font-weight: 600;
+
+	margin-bottom: 10px;
+}
+.col-right p {
+	margin-bottom: 20px;
+	font-size: 1.2rem;
+}
+.col-right a {
+	color: black;
+	font-weight: 600;
+	margin-bottom: 30px;
+}
+.col-left {
+	width: 250px;
+	height: 300px;
+}
+.imag img {
+	width: 100%;
+	border: 10px solid white;
+}
+#about .imag {
+	/* height: 100%; */
+	width: 100%;
+	position: relative;
+	/* border: 10px solid black; */
+	z-index: 1;
+}
+#about .imag::after {
+	content: '';
+	position: absolute;
+	top: 21px;
+	left: -30px;
+	height: 98%;
+	width: 98%;
+	border: 6px solid crimson;
+	z-index: -1;
+}
+/* end of about section */
+/* contact section */
+.contact {
+	flex-direction: column;
+	max-width: 1500px;
+	margin: 0 auto;
+}
+#contact .c-items {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 400px;
+}
+#contact .c-item {
+	width: 80%;
+	margin: 20px;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	/* border: 2px solid #29323c; */
+	box-shadow: 0px 0px 15px 0 #485563;
+	text-align: center;
+	transition: 0.3s ease box-shadow;
+}
+#contact .c-item:hover {
+	box-shadow: 0px 0px 5px 0 #485563;
+}
+/* end of contact */
+/* footer */
+#footer {
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	color: azure;
+	text-align: center;
+}
+#footer .footer {
+	min-height: 200px;
+	flex-direction: column;
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+#footer .foot-icon {
+	display: flex;
+	justify-content: space-evenly;
+}
+#footer .icons {
+	margin: 0 20px;
+}
+#footer h2 {
+	font-size: 1.5rem;
+	word-spacing: 2px;
+}
+#footer p {
+	font-size: 1.5rem;
+	letter-spacing: 2px;
+	word-spacing: 4px;
+}
+/* main css k baad media queries */
