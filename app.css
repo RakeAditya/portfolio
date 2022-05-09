@@ -104,10 +104,6 @@ a {
 }
 .nav-list li:hover a {
 	color: crimson;
-	/* transform: scale(1.2); */
-	transition: 0.3s ease transform;
-}
-.nav-list li:hover {
 	transform: scale(1.2);
 	transition: 0.3s ease transform;
 }
